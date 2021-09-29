@@ -1,0 +1,39 @@
+{
+    /* コンパイル対象ファイルを指定 */
+    "include": ["src/**/*", "@types/**/*"],
+
+    /* コンパイル対象から外すファイルを指定 */
+    "exclude": ["node_modules"],
+
+    /* コンパイルする際のオプション */
+    "compilerOptions": {
+      "target": "es5", // どのバージョンでjsを出力するかを指定
+      "lib": [ // コンパイルする際に使用する組み込みライブラリを指定
+        "ES2020",
+        "DOM"
+      ],
+      "module": "esnext", // 出力するjsのモジュールの仕組みとして何を使用するかを指定
+      "jsx": "react", // tsxファイルをjsxやjsにコンパイルする際の出力の形式を指定
+  
+      /* 型チェック関係のオプション */
+      "strict": true,
+      "noImplicitAny": true, // 暗黙的にanyになる値をエラーにする
+      "strictNullChecks": true, // nullとundefinedを他の型の値として扱えないようにする
+      "noUnusedLocals": true, // 宣言されたが使用されていない変数が存在する場合にコンパイルエラーにする
+      "noUnusedParameters": true, // 関数の作成時、定義しているのに中身のコードで使用されない場合にコンパイルエラーにする
+      "noImplicitReturns": true, // 関数内で、条件分岐の条件によって明示的なreturnがされないルートがある場合、コンパイルエラーにする
+  
+      /* Module解決方法 */
+      "moduleResolution": "node", // tscのモジュール解決の方法を指定
+      "esModuleInterop": true, // すべてのインポートに対して Namespace オブジェクトを生成することによって、CommonJS と ES Modules 間で相互運用可能なコードを出力
+      "isolatedModules": true, // コンパイル対象のファイル間の関係性を一切無視して、全てのファイルを単一のモジュールとしてコンパイルする
+      "allowSyntheticDefaultImports": true, // import React from "react" でインポートを可能にする
+      "forceConsistentCasingInFileNames": true, // インポートするファイル名の大文字小文字を区別する
+
+      /* インクルードする型定義ファイルの指定 */
+      "typeRoots": [ 
+        "node_modules/@types",
+        "@types"
+      ],
+    }
+  }

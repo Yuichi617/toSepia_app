@@ -83,6 +83,7 @@ module.exports = {
         static: {
             directory: path.join(__dirname, 'public'),
           },
+          port: 9000, // ポート番号の指定
         watchFiles: ['src/**/*'], // ファイルの変更があるたびに更新
       },
   };

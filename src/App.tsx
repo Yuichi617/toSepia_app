@@ -7,11 +7,11 @@ const App = () => {
 
     const [send_img, setImage] = useState<File>()
     const [preview, setPreview] = useState<string>(NoImage)
-    const [sepia_img, setSepia] = useState<string>(NoImage)
 
     var onFileInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         if(!e.target.files) return
-        const img: File = e.target.files[0]; //  filesプロパティから Fileオブジェクトを取得
+        if(e.target.files.length == 0) return // アップロードをキャンセルした場合
+        const img: File = e.target.files[0]; // filesプロパティから Fileオブジェクトを取得
         setImage(img);
 
         setPreview(window.URL.createObjectURL(img));
@@ -39,8 +39,8 @@ const App = () => {
                 .then((response) => {
                     response.blob()
                     .then((blob) => {
-                        if(! blob) return
-                        setSepia(window.URL.createObjectURL(blob))
+                        if(!blob) return
+                        setPreview(window.URL.createObjectURL(blob));
                     });
                     }).catch((error)=>{
                         console.error(error);
@@ -65,7 +65,6 @@ const App = () => {
             <div className="wrapper_2">
                 <button onClick={sendImg}>送信</button>
             </div>
-            <img src={sepia_img} />
         </div>
     )
 }

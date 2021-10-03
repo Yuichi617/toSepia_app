@@ -28,7 +28,7 @@ const App = () => {
             console.log("send")
 
             // requestの作成
-            const url = "http://127.0.0.1:8080/to-sepia"
+            const url = "https://tosepiaapi.an.r.appspot.com/to-sepia"
             const requestOptions ={
                 method: 'POST',
                 headers:{'Content-Type': 'application/octet-stream', 'Access-Control-Allow-Origin': '*'},
